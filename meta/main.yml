@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: Emiliano Castagnari
+  description: Ansible role to build GeoIP API
+  license: Apache
+  min_ansible_version: 2.2
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Amazon Linux
+    - name: Solaris
+      versions:
+        - all
+
+  galaxy_tags:
+    - system
+
+dependencies: []

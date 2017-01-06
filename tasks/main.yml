@@ -1,0 +1,20 @@
+---
+
+- name: Include OS Family vars
+  include_vars: "{{ansible_os_family}}.yml"
+  tags: always
+
+- include: install.yml
+  tags: geoip_install
+
+- include: config.yml
+  tags: geoip_config
+
+- include: build.yml
+  tags: geoip_build
+
+- include: dat.yml
+  when: geoip_download_dats
+  tags: geoip_dats
+
+# vi:ts=2:sw=2:et:ft=yaml

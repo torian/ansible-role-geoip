@@ -1,0 +1,17 @@
+---
+
+geoip_packages:
+  - yum-utils
+  - gcc
+  - gcc-c++
+  - libstdc++-devel
+  - libtool
+  - libcurl
+  - libcurl-devel
+  - bzip2-devel
+  - bzip2-libs
+  - nss-devel
+  - openssl-1.0.1k
+  - openssl-devel-1.0.1k
+
+# vi:ts=2:sw=2:et:ft=yaml

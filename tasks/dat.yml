@@ -1,0 +1,25 @@
+---
+
+- name: GeoIP DAT Directory
+  file:
+    state: directory
+    dest: "{{geoip_dat_dir}}"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+
+- name: GeoIP Download DATs
+  get_url:
+    url: "{{item.url}}"
+    dest: "{{geoip_dat_dir}}"
+  with_items: "{{geoip_dats}}"
+
+- name: GeoIP Extract DATs
+  unarchive:
+    src: "{{geoip_dat_dir}}/{{item.basename}}"
+    dest: "{{geoip_dat_dir}}"
+    copy: no
+    mode: "0644"
+  with_items: "{{geoip_dats}}"
+ 
+# vi:ts=2:sw=2:et:ft=yaml

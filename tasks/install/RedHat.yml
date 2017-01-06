@@ -1,0 +1,9 @@
+---
+
+- name: Install packages (RedHat)
+  yum:
+    state: present
+    name: "{{item}}"
+  with_items: "{{geoip_packages}}"
+
+# vi:ts=2:sw=2:et:ft=yaml

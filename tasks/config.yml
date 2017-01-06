@@ -1,0 +1,20 @@
+---
+
+- name: GeoIP Lib Directory
+  file:
+    state: directory
+    dest: "{{geoip_libdir}}"
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: GeoIP LD config
+  copy:
+    dest: /etc/ld.so.conf.d/libGeoIP.conf
+    content: "{{geoip_libdir}}"
+    owner: root
+    group: root
+    mode: "0644"
+  register: _geoip_ldconfig
+
+# vi:ts=2:sw=2:et:ft=yaml

@@ -1,0 +1,30 @@
+---
+
+geoip_repository: https://github.com/maxmind/geoip-api-c
+geoip_dest: /usr/local/src/geoip-api-c
+geoip_branch: v1.6.9
+
+geoip_libdir: /usr/local/lib/libGeoIP
+geoip_configure_opts: "--libdir={{geoip_libdir}}"
+
+geoip_force_build: false
+
+geoip_dat_dir: /usr/local/share/GeoIP
+
+# Download DATs
+geoip_download_dats: false
+
+# geoip_dats:
+#   - url: http://some.place/GeoIP.dat.tgz
+#     basename: GeoIP.dat.tgz
+#     
+geoip_dats:
+  - url: http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
+    basename: GeoLite2-City.mmdb.gz
+    md5: TODO
+  - url: http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
+    basename: GeoLite2-Country.mmdb.gz
+    md5: TODO
+
+
+# vi:ts=2:sw=2:et:ft=yaml

@@ -1,0 +1,31 @@
+---
+
+- name: Clone geoip-api-c repository
+  git:
+    repo: "{{geoip_repository}}"
+    dest: "{{geoip_dest}}"
+    version: "{{geoip_branch}}"
+  register: _geoip_code
+
+- name: Build geoip-api-c
+  shell: >
+    ./bootstrap && ./configure {{geoip_configure_opts}} && make
+  args:
+    chdir: "{{geoip_dest}}"
+  register: _geoip_build
+  when: (_geoip_code|changed) or (geoip_force_build)
+
+- name: Install GeoIP
+  command: >
+    make install
+  args:
+    chdir: "{{geoip_dest}}"
+  sudo: true
+  when: (_geoip_build|success) or (geoip_force_build)
+
+- name: GeoIP LD update
+  command: >
+    ldconfig
+  when: _geoip_build | success
+
+# vi:ts=2:sw=2:et:ft=yaml
