@@ -5,7 +5,7 @@ geoip_dest: /usr/local/src/geoip-api-c
 geoip_branch: v1.6.9
 
 geoip_libdir: /usr/local/lib/libGeoIP
-geoip_configure_opts: "--libdir={{geoip_libdir}}"
+#geoip_configure_opts: "--libdir={{geoip_libdir}}"
 
 geoip_force_build: false
 

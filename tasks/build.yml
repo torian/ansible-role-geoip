@@ -9,7 +9,7 @@
 
 - name: Build geoip-api-c
   shell: >
-    ./bootstrap && ./configure {{geoip_configure_opts}} && make
+    ./bootstrap && ./configure {{geoip_configure_opts|default('')}} && make
   args:
     chdir: "{{geoip_dest}}"
   register: _geoip_build

@@ -7,6 +7,7 @@
     owner: root
     group: root
     mode: "0755"
+  when: (geoip_libdir is defined) and (geoip_libdir)
 
 - name: GeoIP LD config
   copy:
@@ -16,5 +17,6 @@
     group: root
     mode: "0644"
   register: _geoip_ldconfig
+  when: (geoip_libdir is defined) and (geoip_libdir)
 
 # vi:ts=2:sw=2:et:ft=yaml
