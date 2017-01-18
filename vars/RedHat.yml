@@ -1,6 +1,7 @@
 ---
 
 geoip_packages:
+  - git
   - yum-utils
   - gcc
   - gcc-c++
@@ -11,6 +12,8 @@ geoip_packages:
   - bzip2-devel
   - bzip2-libs
   - nss-devel
+
+geoip_packages_amzn:
   - openssl-1.0.1k
   - openssl-devel-1.0.1k
 

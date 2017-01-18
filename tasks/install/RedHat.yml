@@ -6,4 +6,11 @@
     name: "{{item}}"
   with_items: "{{geoip_packages}}"
 
+- name: Install packages (Amazon Linux)
+  yum:
+    state: present
+    name: "{{item}}"
+  with_items: "{{geoip_packages_amzn|default([])}}"
+  when: ansible_distribution == "Amazon"
+
 # vi:ts=2:sw=2:et:ft=yaml
