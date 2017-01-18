@@ -1,0 +1,9 @@
+---
+
+- name: GeoIP API C build
+  hosts: all
+  sudo: yes
+
+  roles:
+    - ansible-role-geoip
+
