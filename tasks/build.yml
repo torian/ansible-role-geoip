@@ -23,6 +23,15 @@
   sudo: true
   when: (_geoip_build|success) or (geoip_force_build)
 
+- name: GeoIP libs Symlink
+  file:
+    src: "{{geoip_lib_prefix|default('/usr/local/lib')}}/{{item}}"
+    dest: "{{geoip_lib_dir}}/{{item}}"
+    state: link
+  with_items:
+    - libGeoIP.so
+    - libGeoIP.so.1
+
 - name: GeoIP LD update
   command: >
     ldconfig

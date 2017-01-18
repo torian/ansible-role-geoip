@@ -4,8 +4,9 @@ geoip_repository: https://github.com/maxmind/geoip-api-c
 geoip_dest: /usr/local/src/geoip-api-c
 geoip_branch: v1.6.9
 
-geoip_libdir: /usr/local/lib/libGeoIP
-#geoip_configure_opts: "--libdir={{geoip_libdir}}"
+geoip_lib_prefix: /usr/local/lib
+geoip_lib_dir: /usr/local/lib/libGeoIP
+#geoip_configure_opts: "--libdir={{geoip_lib_dir}}"
 
 geoip_force_build: false
 

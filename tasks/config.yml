@@ -3,20 +3,20 @@
 - name: GeoIP Lib Directory
   file:
     state: directory
-    dest: "{{geoip_libdir}}"
+    dest: "{{geoip_lib_dir}}"
     owner: root
     group: root
     mode: "0755"
-  when: (geoip_libdir is defined) and (geoip_libdir)
+  when: (geoip_lib_dir is defined) and (geoip_lib_dir)
 
 - name: GeoIP LD config
   copy:
     dest: /etc/ld.so.conf.d/libGeoIP.conf
-    content: "{{geoip_libdir}}"
+    content: "{{geoip_lib_dir}}"
     owner: root
     group: root
     mode: "0644"
   register: _geoip_ldconfig
-  when: (geoip_libdir is defined) and (geoip_libdir)
+  when: (geoip_lib_dir is defined) and (geoip_lib_dir)
 
 # vi:ts=2:sw=2:et:ft=yaml
