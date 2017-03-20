@@ -21,5 +21,5 @@
     copy: no
     mode: "0644"
   with_items: "{{geoip_dats}}"
- 
+
 # vi:ts=2:sw=2:et:ft=yaml

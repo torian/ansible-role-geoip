@@ -20,7 +20,7 @@
     make install
   args:
     chdir: "{{geoip_dest}}"
-  sudo: true
+  become: true
   when: (_geoip_build|success) or (geoip_force_build)
 
 - name: GeoIP libs Symlink
