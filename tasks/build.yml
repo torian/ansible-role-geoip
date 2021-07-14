@@ -13,7 +13,7 @@
   args:
     chdir: "{{geoip_dest}}"
   register: _geoip_build
-  when: (_geoip_code|changed) or (geoip_force_build)
+  when: (_geoip_code is changed) or (geoip_force_build)
 
 - name: Install GeoIP
   command: >
@@ -21,7 +21,7 @@
   args:
     chdir: "{{geoip_dest}}"
   become: true
-  when: (_geoip_build|success) or (geoip_force_build)
+  when: (_geoip_build is success) or (geoip_force_build)
 
 - name: GeoIP libs Symlink
   file:
@@ -35,6 +35,6 @@
 - name: GeoIP LD update
   command: >
     ldconfig
-  when: _geoip_build | success
+  when: _geoip_build is success
 
 # vi:ts=2:sw=2:et:ft=yaml
